@@ -1,0 +1,192 @@
+@import url('../fontawesome/css/font-awesome.min.css');
+@import url('checkboxradio.css');
+@import url('pwstrength.css');
+@import url('showpassword.css');
+@import url('nanogress.css');
+@import url('powerwizard.css');
+@import url('helpers.css');
+
+/*
+ * ===============================================================
+ * BASIC CSS SELECTORS
+ * ===============================================================
+ */
+  
+html{
+	height     : 100%;
+	min-height : 100%;
+	margin     : 0;
+	padding    : 0;
+}
+body{
+	position    : relative;
+	overflow-x  : hidden;
+	height      : 100%;
+	min-height  : 100%;
+	margin      : 0;
+	padding     : 0;
+	font-family : Arial, Helvetica, sans-serif;	
+	font-size   : 13px;
+	line-height : 20px;
+}
+a, 
+a:visited, 
+a:active,
+a:hover,
+a:focus{
+	text-decoration : none;
+	outline         : none!important;
+}
+a:hover{
+	text-decoration : none;
+}
+h1{
+	font-size : 20px
+}
+h2{
+	font-size : 20px;
+}
+h3{
+	font-size : 16px;
+}
+h4{
+	font-size : 12px;
+}
+i,
+a i{
+	width      : 14px;
+	font-size  : 14px;
+	text-align : center;
+}
+i{
+	cursor : default;
+}
+a i{
+	cursor          : pointer;
+	text-decoration : none;
+}
+a:hover i{
+	text-decoration : none;
+}
+p{
+	margin : 0;
+}
+*{
+	outline : 0!important;
+}
+main{
+	display : block;
+}
+
+/*
+ * ===============================================================
+ * CONTAINER
+ * ===============================================================
+ */
+
+#container-login{
+	position : relative;
+	height   : 100%;
+	width    : 300px;
+	margin   : 0 auto;
+}
+#container-loginmin{
+	position : relative;
+	height   : 100%;
+	width    : 400px;
+	margin   : 0 auto;
+}
+#container-signup{
+	position : relative;
+	height   : 100%;
+	width    : 440px;
+	margin   : 0 auto;
+}
+
+/*
+ * ===============================================================
+ * LOGIN
+ * ===============================================================
+ */
+
+
+#login-box{position : relative;}
+#container-loginmin #form-login label,
+#container-loginmin #form-login .btn{margin : 0;}
+#login-box h2{margin: 0px 0 5px 0;line-height : 20px;}
+
+.login-box-inner{padding : 40px;}
+.login-box-inner > .alert{margin : 0 0 40px 0;}
+#container-loginmin .login-box-inner{padding : 35px 40px 40px 40px;}
+#login-footer{padding: 20px;text-align: center;}
+#login-footer small{display : block}
+#pwindicator{height : 20px;}
+
+.username{
+	height      : 30px;
+	margin      : 0 0 10px 0;
+	line-height : 30px;
+}
+.green-check{
+	padding     : 5px 0;
+	font-weight : bold;
+}
+.red-check{
+	padding     : 5px 0;
+	font-weight : bold;
+}
+.underline{
+	float   : right;
+	padding : 5px 0 5px;
+}
+.underline:focus{
+	text-decoration : underline
+}
+.underline:hover{
+	text-decoration : none;
+}
+#modal-tou-trigger{
+	text-decoration : underline;	
+}
+
+.form-text{padding : 5px 0;}
+
+.login-fields-wrapper{
+	float : right;
+	width : 40%;
+	min-width: 188px;
+}
+
+
+/* Added blocks */
+.aspect-ratio {
+    height: 0;
+    margin-top: 0;
+    padding-bottom: 51%;
+    position: relative;
+    width: 100%;
+}
+.aspect-ratio iframe {
+	border-radius: 5px;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#plecaTop{background-color: #007eba;}
+#plecaBottom{background-color: #edeeee;}
+#logosLogin{text-align: center;}
+#logosLogin img#RMLogo{width: 40%;}
+#logosLogin .logoCompany{width: 14%;margin: 0 2%;}
+
+/*.whitebox2{background: #fff url('../images/theme/punto.png') repeat top left;}*/
+.whitebox2{background-color: #fff;}
+
+.img100{width: 100%;}
+.vacio{clear: both;line-height: 0.1;background: transparent;}
+
+#bannerLogin{float: left;width: 50%;text-align: center;}
+#bannerLogin img{width: 70%;}
+.login-box-inner input.btn {clear: none;display: block;float: none;margin: 70px auto 0;}
