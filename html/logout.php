@@ -1,24 +1,20 @@
 <?php
-session_start();
-require('../include/config.php');
+require_once "masterInclude.inc.php";
  
-function sanitize($data) {
-$data = trim($data);
-$data = htmlspecialchars($data);
-return $data;
-}
+// Desconfigura todos los valores de sesión.
+$_SESSION = array();
  
-$signature = sanitize($_GET['signature']);
-if ($signature === $_SESSION['signature']) {
-	//authenticated user request
-	$_SESSION['usuario'] = "";
-	$_SESSION['logged_in'] = False;
-	session_destroy();
-	session_unset();
-	header("Location: index.php");
-} else {
-	//unauthorized logout
-	header(sprintf("Location: %s", $forbidden_url));
-	exit;
-}
-?>
+// Obtiene los parámetros de sesión.
+$params = session_get_cookie_params();
+ 
+// Borra el cookie actual.
+setcookie(session_name(),
+        '', time() - 42000, 
+        $params["path"], 
+        $params["domain"], 
+        $params["secure"], 
+        $params["httponly"]);
+ 
+// Destruye sesión. 
+session_destroy();
+header('Location: index.php');

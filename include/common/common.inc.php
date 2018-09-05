@@ -16,7 +16,6 @@
 
 
 	require_once(CLASS_COMUN);
-	require_once(CLASS_COMUN_WS);
 	require_once(CLASS_SESSION);
 
 
@@ -47,43 +46,12 @@
 
 	require_once(LIB_CONEXION);
 	//require_once(LIB_CONEXION_INT);
-	require_once(LIB_TRANSLATE);
+//	require_once(LIB_TRANSLATE);
 	require_once(LIB_XAJAX);
 	//require_once(LIB_UTILS);
 	//require_once(LIB_IMAGE);
 	require_once(LIB_EXCEPTION);
 
-	//require_once(CLASS_COMUN);
-	//require_once(CLASS_COMUN_CONSULTA);
-
-
-	#-----------------------------------------------------------------------------------------------#
-	#----------------Inicializo las conecciones a las BD necesarias, segun el Script----------------#
-	#-----------------------------------------------------------------------------------------------#
-
-	/*
-
-	$_DB=new PDOConfig();
-
-	if(isset($_USEDBINT))
-		$_DBI=new PDOConfigIntegrantes();
-
-	*/
-
-	#-----------------------------------------------------------------------------------------------#
-	#-----------------------------------------------------------------------------------------------#
-
-
-	#require_once $_SERVER['DOCUMENT_ROOT'] . '/redServer/protected/Configuracion/i18n/' . $_SESSION['lang'] . '.php';
-
-	/*
-
-	if(isset($__incluirPerfil))
-	{
-		require_once (FOLDER_MODEL_NEW . "/model.perfil.inc.php");
-	}
-
-	*/
 
 
 
@@ -109,11 +77,6 @@
 
 	if(isset($_JAVASCRIPT_OUT))
 		$_JAVASCRIPT_CSS.='<script type="text/javascript">' . $_JAVASCRIPT_OUT . '</script>';
-
-
-	if(isset($objSession)&&$objSession->ejecucionPendiente())
-		$_JAVASCRIPT_CSS.='<script type="text/javascript">setTimeout(revisarPendientes,3000)</script>';
-
 
 
 

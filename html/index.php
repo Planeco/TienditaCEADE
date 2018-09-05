@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php 
+require("masterInclude.inc.php");
+?><!DOCTYPE html>
 <!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7 no-js"> <![endif]-->
 <!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7 no-js"> <![endif]-->
 <!--[if IE 8]>     <html class="ie ie8 lte9 lte8 no-js">      <![endif]-->
@@ -55,6 +57,9 @@
     <script src="js/plugins/powerwizard.1.0.min.js"></script>    
     <script src="js/plugins/jquery.pwstrength.min.js"></script>
     <script src="js/plugins/login.js"></script>
+    <?php
+		echo $_JAVASCRIPT_CSS;
+	?>
      
 </head>
 <body class="whitebox2"> 
@@ -89,13 +94,8 @@
                         <div class="col-sm-12">
 							<div id="login-box">
 								<div class="login-box-inner clearfix">
-								
-									<?php if(isset($msg)): ?>
-										<?php echo $msg ?>
-									<?php endif ?>
 									
 									<div class="spacer-10"></div>   
-									<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" id="form-login">
 				
 										<div id="bannerLogin">
 											<img src="images/theme/helpdesk.png" alt="Help Desk" />
@@ -104,7 +104,7 @@
 										<div class="login-fields-wrapper">
 											<div class="row">  
 												<div class="col-lg-12">	
-													<input class="form-control input-lg" type="text" placeholder="Correo Electr&oacute;nico" tabindex="1" name="username" />
+													<input class="form-control input-lg" type="text" placeholder="Correo Electr&oacute;nico" tabindex="1" id="username" />
 												</div>
 											</div>
 											<div class="spacer-10"></div>  
@@ -115,26 +115,15 @@
 											</div>
 											
 											
-											<?php if (($loginattempts_username > 6) || ($registered == FALSE) || ($loginattempts_total > 6)) { ?>
-												<div class="spacer-20"></div>
-												<div id="captcha_block">
-													<p>Escribe el Captcha a continuaci&oacute;n:</p>
-													<?php
-													require_once('recaptchalib.php');
-													echo recaptcha_get_html($publickey);
-													?>
-												</div>
-											<?php } ?>
 											
 											<div class="spacer-20"></div>	
 											<div class="row">
 												<div class="col-lg-12">	
 													<!-- this needs to be a button/input element -->
-													<input type="submit" class="btn btn-default btn-lg" value="Iniciar Sesi&oacute;n" />
+													<input type="button" class="btn btn-default btn-lg" value="Iniciar Sesi&oacute;n" id="btnEnviar"/>
 												</div>
 											</div>
 										</div>
-									</form>
 								</div>
 							</div>
 						</div>
@@ -152,6 +141,12 @@
      			
      		</div>
      	</div>
+     	        <!-- ----------------------------------------------------------------------------------------- -->
+        <!-- --------------------------Seccion de alertas y mensajes modales-------------------------- -->
+        <!-- ----------------------------------------------------------------------------------------- -->			<button id="_alertShow" type="button" class="btn btn-primary" data-toggle="modal" data-target=".aviso-modal-sm" style="display:none">&nbsp;</button>				<div id="_modalDiv" class="modal fade aviso-modal-sm">			<div class="modal-dialog">				<div class="modal-content">					<div class="modal-header">						<button type="button" class="close" data-dismiss="modal" aria-label="Close"  id="_alertCloseUp">							<span aria-hidden="true">&times;</span>						</button>						<h4 class="modal-title" id="_alertTitle">Aviso</h4>					</div>					<div class="modal-body" id="_alertBody"></div>					<div class="modal-footer">						<button type="button" class="btn btn-default" data-dismiss="modal" id="_alertClose">Cerrar</button>					</div>				</div>			</div>		</div>				<!-- ----------------------------------------------------------------------------------------- -->
+        <!-- ----------------------Fin de seccion de alertas y mensajes modales----------------------- -->
+        <!-- ----------------------------------------------------------------------------------------- -->
+     	
     </div><!-- End #container --> 
 </body>
 </html>

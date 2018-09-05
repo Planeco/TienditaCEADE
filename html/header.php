@@ -1,6 +1,6 @@
 			<div class="sidebar-logo">
             	<a href="dashboard.php" id="logo-big">
-            		<img src="images/theme/logoreame.png" alt="Tiendita Godin" title="Tiendita Godin" />
+            		<h1>Tiendita</h1>
             	</a>
             </div><!-- End .sidebar-logo -->
                     
@@ -9,7 +9,7 @@
                 	<div class="dropdown ext-dropdown-profile">
 						<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
 						<img src="images/users/user-1.jpg" alt="" class="avatar"/>
-							Hola, <strong><?php echo $_SESSION['alias']; ?></strong>
+							Hola, <strong><?php echo $objSession->getNombre() ?></strong>
 							<i class="fa fa-caret-down pull-right"></i>
 						</a>
 						<ul role="menu" class="dropdown-menu">
@@ -21,7 +21,7 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="logout.php?signature=<?php echo $_SESSION['signature']; ?>"><i class="fa fa-sign-out"></i> Salir</a>
+								<a href="logout.php"><i class="fa fa-sign-out"></i> Salir</a>
 							</li>
 						</ul>
 	                </div>
@@ -29,3 +29,6 @@
             </div><!-- /sidebar -->
                     
             <div class="sidebar-line"><!-- A seperator line --></div>
+            <?php 
+ //           include 'activarmenus.php';
+            ?>

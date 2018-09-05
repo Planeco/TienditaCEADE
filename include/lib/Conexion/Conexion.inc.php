@@ -5,7 +5,7 @@ if(DEVELOPER)
 	$username = 'root';
 	$password = '';
 	$hostname = 'localhost';
-	$database = 'unificabc';
+	$database = 'tiendita';
 }
 else
 {

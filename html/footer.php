@@ -4,7 +4,7 @@
                             <p>Derechos Rerservados Grupo Empresarial Reinventando a Mexico&copy; <?php echo date('Y');?></p>
                         </div> 
                         <div class="pull-right">
-                        	<p><strong>Soporte</strong>: soporte@planetcommunication.net</p>
+<!--                        	<p><strong>Soporte</strong>: soporte@planetcommunication.net</p>-->
                         </div> 
                     </div>
                 </footer>
