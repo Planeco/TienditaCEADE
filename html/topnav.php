@@ -1,14 +1,3 @@
-
-<?php
-
-	//print_r($objSession);
- include 'activarmenus.php';
-
-	//$_menoLateral=generaMenuLateral();
-
-
-
-?>
 		<header id="header-main">
             	<div class="header-main-top">
                 	<div class="pull-left">
@@ -30,7 +19,10 @@
                     	<?php echo $_menuTop;?>
                     	-->
                     	<li <?php if ($seccion=="inicio"){ echo 'class="active"'; }?>><a href="dashboard.php">Inicio</a></li>
-                    <li <?php if ($seccion=="soporte"){ echo 'class="active"'; }?>><a href="soporte.php">Soporte</a></li>
+                    	<li <?php if ($seccion=="caja"){ echo 'class="active"'; }?>><a href="puntoVenta.php">Caja</a></li>
+                    	<li <?php if ($seccion=="inventario"){ echo 'class="active"'; }?>><a href="altaProducto.php">Inventario</a></li>
+                    <li <?php if ($seccion=="soporte"){ echo 'class="active"'; }?>><a href="ticket.php">Soporte</a></li>
+                    <li <?php if ($seccion=="preferencias"){ echo 'class="active"'; }?>><a href="contrasena.php">Preferencias</a></li>
                     
                         </ul>
                         <!-- End .breadcrumb -->

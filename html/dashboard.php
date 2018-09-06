@@ -1,8 +1,5 @@
 <?php
 	require("masterIncludeLogin.inc.php");
-	//$nav = 'inicio';
-	//$subnav = 'home';
-//	$nav='';
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7 no-js"> <![endif]-->
@@ -98,15 +95,8 @@
     <script src="js/plugins/layout.min.js"></script>
     <script src="js/plugins/masonry.pkgd.min.js"></script>
     
-    <script src="js/Chart.js/Chart.min.js"></script>   
-   <!-- table sort -->
-    <script src="js/plugins/jquery.tablesorter.min.js"></script>
-    <script src="js/plugins/jquery.tablesorter.widgets.min.js"></script>
-    <script src="js/plugins/jquery.tablesorter.pager.min.js"></script>
-    
     
 	<script src="js/plugins/generics.js"></script>
-	    <script src="js/plugins/tablesort.js"></script>
 	     
     <?php
 			echo $_JAVASCRIPT_CSS;
@@ -135,111 +125,33 @@
                    	<!-- <div class="col-sm-12"> -->
                             <!-- <div class="row"> -->
                             	<div class="col-sm-12 inner-padding">
-                                    <h3>
-                                    Mis tickets
-										</h3>
+                                    <h3> </h3>
 										
 										<div class="inner-padding">						
                                     
 										<div class="col-sm-12">
 										
-										<table class="table" id="tablesorting-1">
-											<thead>
-												<tr>
-													<th>Tipo</th>
-													<th>Fecha</th>
-													<th>Solicitante</th>
-													<th>Asociado a (cliente)</th>
-													<th>Estatus</th>
-													<th>Opciones</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php echo $listado; ?>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="6" class="pager form-horizontal">
-														<button class="btn first"><i class="fa fa-step-backward"></i></button>
-														<button class="btn prev"><i class="fa fa-arrow-left"></i></button>
-														<span class="pagedisplay"></span> <!-- this can be any element, including an input -->
-														<button class="btn next"><i class="fa fa-arrow-right"></i></button>
-														<button class="btn last"><i class="fa fa-step-forward"></i></button>
-														<select class="pagesize input-xs" title="Select page size">
-															<option value="10">10</option>
-															<option value="20">20</option>
-															<option value="30">30</option>
-															<option selected="selected" value="40">40</option>
-														</select>
-														<select class="pagenum input-xs" title="Seleccione P&aacute;gina"></select>
-													</td>
-												</tr>
-											</tfoot>
-								</table>
+										
                             
 										</div>
 								</div>
                                     <div class="spacer-30"></div>                                       	
                                     <!-- End .inner-padding -->  
                                 </div>
-                                
-                                <?php if (count($arr)>0):?>
-                                <div class="col-sm-12 inner-padding">
-                                    <h3>
-                                    Mis Contratos
-										</h3>
-										
-										<div class="inner-padding">						
-                                    
-										<div class="col-sm-12">
-										<table class="table table-bordered table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"># Contrato</th>
-                                            <th scope="col" colspan="2">Cliente</th>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody> <?php echo $listado;?>
-                                   </tbody>
-                                </table>
-                                
-										</div>
-										</div>
-										
-								</div>
-								
-								<?php endif;?>
                              <!-- </div> --><!-- End .row -->
                         </div>                        
                      <!-- </div> -->
                  </div> <!-- End .window -->                
                 <?php include_once('footer.php'); ?>
                 
-                <a data-toggle="modal" id="_alertShow" style="display:none" class="btn btn-danger" role="button" href="#_alertBox">Alert</a>
-		<div class="modal fade" id="_alertBox" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="_alertCloseUp">
-							&times;
-						</button>
-						<h4 class="modal-title" id="_alertTitle"></h4>
-					</div>
-					<div class="modal-body">
-						<p id="_alertBody"></p>
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-default" data-dismiss="modal" id="_alertClose">
-							OK
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
                 
             </div><!-- End #content -->  
+      	        <!-- ----------------------------------------------------------------------------------------- -->
+        <!-- --------------------------Seccion de alertas y mensajes modales-------------------------- -->
+        <!-- ----------------------------------------------------------------------------------------- -->			<button id="_alertShow" type="button" class="btn btn-primary" data-toggle="modal" data-target=".aviso-modal-sm" style="display:none">&nbsp;</button>				<div id="_modalDiv" class="modal fade aviso-modal-sm">			<div class="modal-dialog">				<div class="modal-content">					<div class="modal-header">						<button type="button" class="close" data-dismiss="modal" aria-label="Close"  id="_alertCloseUp">							<span aria-hidden="true">&times;</span>						</button>						<h4 class="modal-title" id="_alertTitle">Aviso</h4>					</div>					<div class="modal-body" id="_alertBody"></div>					<div class="modal-footer">						<button type="button" class="btn btn-default" data-dismiss="modal" id="_alertClose">Cerrar</button>					</div>				</div>			</div>		</div>				<!-- ----------------------------------------------------------------------------------------- -->
+        <!-- ----------------------Fin de seccion de alertas y mensajes modales----------------------- -->
+        <!-- ----------------------------------------------------------------------------------------- -->
+     	
     	</div>
     	<!-- End #main -->   	    	
     

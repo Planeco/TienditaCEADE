@@ -13,7 +13,6 @@ function enviar()
 	
 	$(document).ready(function()
 	{
-		mostrarEspera("Solicitando acceso...");
 		$("#btnEnviar").click(enviar);
 	});
 	 

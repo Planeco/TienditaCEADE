@@ -17,13 +17,14 @@
 	{
 		if(defined("SUBDIR"))
 		{
-			define("FOLDER_HTDOCS","/var/www/html/" . SUBDIR . "/");
+			define("FOLDER_HTDOCS","/var/www/vhost/tienditagodin.reinventandoamexico.com.mx/html/" . SUBDIR . "/");
 			define("DOMINIO","http://216.46.188.242/" . SUBDIR . "/");
 		}
 		else
 		{
-			define("FOLDER_HTDOCS","/var/www/html/");
+			define("FOLDER_HTDOCS","/var/www/vhost/tienditagodin.reinventandoamexico.com.mx/html/");
 			define("DOMINIO","http://216.46.188.242/");
+			define("FOLDER_JS2","/var/www/vhost/tienditagodin.reinventandoamexico.com.mx/html/js/system/");
 		}
 		//define("FOLDER_OSTICKET","/var/www/html/admin/osticket/");
 		//define("DOMINIO","http://vps-1152682-20296.manage.myhosting.com/admin/");
@@ -54,7 +55,7 @@
 		}
 		else
 		{
-			define("FOLDER_HTDOCS",$_SERVER['DOCUMENT_ROOT'].'TienditaCEADE/');
+			define("FOLDER_HTDOCS",$_SERVER['DOCUMENT_ROOT'].'TienditaCEADE/html/');
 			define("DOMINIO","http://planet/admin/");
 		}
 
@@ -73,32 +74,7 @@
 	#-----------------------------------------------CONSTANTES PARA BASE DE DATOS-----------------------------------------------#
 	#---------------------------------------------------------------------------------------------------------------------------#
 
-	if(DEVELOPER)
-	{
-		define("CONFIGURACION_DBMS","mysql");
-		define("CONFIGURACION_DBMS_HOST","localhost");
-		define("CONFIGURACION_DBMS_DB","tiendita");
-		define("CONFIGURACION_DBMS_USER","root");
-		define("CONFIGURACION_DBMS_PASS","");
-		define("CONFIGURACION_DBMS_PREFIX","");
-		#define("ISEARCH_ADMIN_PASSWORD","hJzCCNed8FmAT5dq");
-	}
-	else
-	{
 
-		#$username = '';
-		#$password = 'QV?pPti$=P#2';
-		#$hostname = 'localhost';
-		#$database = '';
-
-		define("CONFIGURACION_DBMS","mysql");
-		define("CONFIGURACION_DBMS_HOST","localhost");
-		define("CONFIGURACION_DBMS_DB","admin_planet");
-		define("CONFIGURACION_DBMS_USER","root");
-		define("CONFIGURACION_DBMS_PASS","");
-		define("CONFIGURACION_DBMS_PREFIX","");
-		define("ISEARCH_ADMIN_PASSWORD","hJzCCNed8FmAT5dq");
-	}
 	#-----------------------------------------------------------------------------------------------------------------------#
 	#-------------------------------------------------CONSTANTES DE FOLDERS-------------------------------------------------#
 	#-----------------------------------------------------------------------------------------------------------------------#
@@ -115,7 +91,7 @@
 
 	//define("FOLDER_DATOS",FOLDER_HTDOCS . "datos/");
 
-	define("FOLDER_JS",$_SERVER['DOCUMENT_ROOT'] . "/TienditaCEADE/html/js/system/");
+	define("FOLDER_JS",FOLDER_HTDOCS. "js/system/");
 	define("FOLDER_LOG",FOLDER_INCLUDE . 'log/');
 
 	#-----------------------------------------------------------------------------------------------------------------------#

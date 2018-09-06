@@ -9,10 +9,10 @@ if(DEVELOPER)
 }
 else
 {
-	$username = 'unifica_usr';
-	$password = 'Un1Fic61025110';
+	$username = 'root';
+	$password = 'Ge2016RTF*vbT';
 	$hostname = 'localhost';
-	$database = 'unifica';
+	$database = 'tiendita';
 }
 
 $dbLink= mysqli_connect($hostname, $username, $password)

@@ -30,5 +30,5 @@
                     
             <div class="sidebar-line"><!-- A seperator line --></div>
             <?php 
- //           include 'activarmenus.php';
+            include 'activarmenus.php';
             ?>
