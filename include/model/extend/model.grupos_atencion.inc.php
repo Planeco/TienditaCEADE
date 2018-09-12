@@ -1,13 +1,13 @@
 <?php
 
-	require FOLDER_MODEL_BASE . "model.base.login_user.inc.php";
+	require FOLDER_MODEL_BASE . "model.base.grupos_atencion.inc.php";
 
-	class ModeloLogin_user extends ModeloBaseLogin_user
+	class ModeloGrupos_atencion extends ModeloBaseGrupos_atencion
 	{
 		#------------------------------------------------------------------------------------------------------#
 		#----------------------------------------------Propiedades---------------------------------------------#
 		#------------------------------------------------------------------------------------------------------#
-		var $_nombreClase="ModeloBaseLogin_user";
+		var $_nombreClase="ModeloBaseGrupos_atencion";
 
 		var $__ss=array();
 
@@ -55,7 +55,28 @@
 		{
 			return true;
 		}
-
+		
+		function obtenerUsuarioGrupo($tticket) {
+		    $sql = "SELECT l.id_login, g.nombre FROM grupos_atencion as g
+                    inner join ticket_tipo as t on g.idGrupoAtencion=t.grupo_atencion
+                    inner join usuario as u on g.id_encargado=u.id_usuario
+                       inner join login_user l on u.id_usuario=l.id_usuario
+                    where id_ttipo=$tticket ";
+		    $res = mysqli_query ( $this->dbLink, $sql );
+		    if ($res && mysqli_num_rows ( $res ) > 0) {
+		        $arr = array ();
+		        while ( $row_inf = mysqli_fetch_assoc ( $res ) ) {
+		            $arr ['id_usuario']=$row_inf ['id_login'];
+		            $arr['nombre']= ($row_inf ['nombre']);
+		        }
+		        return $arr;
+		    } else {
+		        return array (
+		            ""=>"No existen usuarios"
+		        );
+		    }
+		    
+		}
 
 	}
 

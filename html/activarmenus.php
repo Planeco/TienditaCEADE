@@ -6,7 +6,9 @@ $arrSeccionesPagina = array(
     "dashboard" => "inicio",
     "ticket" => "soporte",
     "ticketadd" => "soporte",
+    "ticketasig" => "soporte",
     "tickethis" => "soporte",
+    "ticketrev" => "soporte",
     
     "puntoVenta" => "caja",
     "cancelarRecibo" => "caja",

@@ -8,7 +8,17 @@ $ar=array(array('Marco Antonio ','Romero Millan ','gerentecomercial@planetucc.co
 ,array('Oscar ','Rivera Romo','oscar@planetucc.com')*/
 );
 $int=1;
-$ar=array(array('Root','root2018','root','1','root@tiendita'));
+$ar=array(array('Root','root2018','root','1','root@tiendita'),
+    array('Ana Laura','ana2018','ana','1','anajuarez@ceade.mx'),
+    array('Aidee','aidee2018','aidee','1','aideelazcano@ceade.mx'),
+    array('Josué','josue2018','josueenriquez','1','josue@insha.com.mx'),
+    array('Jorge','jorge2018','jorge','1','jorgelara@insha.com.mx'),
+    array('Alexander','alex2018','alexander','1','alexandermayorga@insha.com.mx'),
+    array('Ulises','ulises2018','ulises','1','ulisesmoreno@insha.com.mx'),
+    array('José Antonio','antonio2018','antonio','1','antoniopacheco@insha.com.mx'),
+    array('José Luis','jl2018','jl','1','joseluistorres@insha.com.mx'),
+    array('Félix','felix2018','felix','1','felixortiz@insha.com.mx'),
+);
 foreach ($ar as $v=>$vendedor){
 	srand($int);
 $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));

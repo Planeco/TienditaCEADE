@@ -115,6 +115,8 @@ require ("masterIncludeLogin.inc.php");
 
 
 <script src="js/plugins/generics.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+   <script src="js/plugins/formData.js"></script>
 	     
     <?php
     echo $_JAVASCRIPT_CSS;
@@ -144,6 +146,155 @@ require ("masterIncludeLogin.inc.php");
 						<h3></h3>
 
 						<div class="inner-padding">
+						 
+ 								<div class="col-sm-12">	    
+ 									<h4 class="sectionTitle">
+										<i class="fa fa-folder-open text-muted"></i> &nbsp;Informaci&oacute;n General
+									</h4>
+									</div>
+										<div class="spacer-20"> </div>
+									<div class="col-sm-3">
+										<label for="txtFolio">Fecha:</label> <input type="text"
+											name="txtFecha" class="form-control"
+											value="<?php echo date('Y-m-d'); ?>" readonly="readonly" />
+									</div>
+
+							<div class="col-sm-3">
+								<label for="txtTipoSolicitud">Tipo de Solicitud:</label> 
+								<select
+									name="txtTipoSolicitud" id="slcTipoSolicitud"
+									class="form-control ">
+									</select>
+							</div>
+
+							<div class="col-sm-3">
+								<label for="txtAsignacion">Asignar a:</label>
+								
+								 <input type="hidden" id="idPerfilActual" value="" />
+								 <input type="hidden" id="hdnAsignacion" value="<?php echo $comboAsignar;?>" />
+								 
+                                   <?php if ($comboAsignar){?> 
+                                  <select	class="form-control " id="slcAsignacion">
+									<option value="">Seleccione una opci&oacute;n</option>
+		                                 </select>
+                                    <?php } else {?>
+                                <input type="hidden" id="slcAsignacion"  value="" /> 
+                                <input type="text" id="txtAsignacion" class="form-control" value="" readonly />
+                                   <?php }?>
+                            </div>
+
+							<div class="col-sm-3">
+								<label for="txtPrioridad">Prioridad:</label> 
+							<select name="txtPrioridad" class="form-control " id="slcPrioridad"> 
+                                 <?php foreach ($arrPrioridad as $idPrioridad => $nombre)
+                                     echo '<option value="' . $idPrioridad . '" > ' . $nombre . ' </option>';
+                                    ?>
+		                       </select>
+							</div>
+							
+							 <div class="col-sm-12">
+	                                                <div class="spacer-20"></div>
+    	                                            <hr />
+    	                                             <div class="spacer-20"></div>
+    	                                            <h4 class="sectionTitle">
+    	                                            <i class="fa fa-folder-open text-muted"></i> &nbsp;Detalles de Solicitud
+    	                                            </h4> 
+    	                                        </div>
+                                                
+                                                
+                                                <div class="col-sm-12">
+                                                	<div class="spacer-20"></div>
+                                                	<div class="row">
+                                                        <div class="col-sm-12">
+                                                            <label for="txtTitulo">Titulo o Asunto:</label>
+		                                                    <input type="text" id="txtTitulo" class="form-control"  />
+                                                        </div>
+                                                    </div>
+                                                	<div class="spacer-10">&nbsp;</div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <label for="txtResumen">Detalles del problema:</label>
+                                                            <textarea class="form-control" id="txtResumen" name="txtResumen2" style=""></textarea>
+
+                                                        </div>
+<script>
+	var editor=CKEDITOR.replace('txtResumen2');
+	</script>
+  	                                                    </div>
+                                                </div>
+                            					
+                            					
+                   
+                            					 <div class="col-sm-12">
+	                                                <div class="spacer-20"></div>
+    	                                            <hr />
+    	                                             <div class="spacer-20"></div>
+    	                                            <h4 class="sectionTitle"><i class="fa fa-cloud-upload text-muted"></i> &nbsp;Adjuntar Documentos</h4> 
+    	                                        </div>
+    	                                        <div class="spacer-20"></div>
+    	                                        <div class="col-sm-4">
+									<div class="row row_archivos">
+										<div class="col-sm-12">
+										<div id="msjErrorArchivo" ></div>
+										</div>
+										<div class="spacer-10"></div>
+										
+										<div class="col-sm-8">
+											<label for="image">Archivo 
+											</label> <input type="file" name="archivoImagen" id="archivoImagen"  accept="image/*" />
+											<div class="spacer-10"></div>
+											<label>Descripci&oacute;n</label>
+											<input type="text" name="txtDescripcionImagen" id="txtDescripcionImagen" class="form-control"  />
+										</div>
+
+										<div class="col-sm-3">
+											<a href="javascript:agregar_archivo();" 
+												class="btn btn-wide btn-primary"> <i class="fa fa-plus"></i>
+												Agregar
+											</a>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="col-sm-8">
+									<div class="table-wrapper" style="display: none" id="tablaArchivos">
+										<header>
+											<h3>Mis archivos</h3>
+										</header>
+										<div class="rt-table" id="divTabla">
+											<table class="table table-bordered table-striped" id="tb1"
+												data-rt-breakpoint="600">
+												<thead>
+													<tr>
+														<th scope="col" colspan="2" data-rt-column="Archivo">Archivo</th>
+														<th scope="col" colspan="3" data-rt-column="Descripcion">Descipci&oacute;n</th>
+														<th scope="col" data-rt-column="Opciones">Opciones</th>
+													</tr>
+												</thead>
+												
+												<tbody id="contenedor_tabla">
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="spacer-20"></div>
+    	                                        
+    	                                        
+    	                                        <div class="col-sm-12">
+    	                                        	<div class="spacer-20"></div>
+                                                    	<div class="col-sm-12">
+                                                    		<div class="pull-right">
+                                                    		<button class="btn btn-default" id="btnCancelar" name="btnCancelar"> Cancelar </button>												
+												<button class="btn btn-primary" id="btnGuardar" name="btnGuardar"> Guardar </button>
+	                                                    	</div>
+                                                    </div>
+    	                                        </div>
+                            					
+									
+									<div class="spacer-50"> </div>
+
 
 							<div class="col-sm-12"></div>
 						</div>

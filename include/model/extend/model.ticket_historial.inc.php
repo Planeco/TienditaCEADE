@@ -1,13 +1,13 @@
 <?php
 
-	require FOLDER_MODEL_BASE . "model.base.usuario.inc.php";
+	require FOLDER_MODEL_BASE . "model.base.ticket_historial.inc.php";
 
-	class ModeloUsuario extends ModeloBaseUsuario
+	class ModeloTicket_historial extends ModeloBaseTicket_historial
 	{
 		#------------------------------------------------------------------------------------------------------#
 		#----------------------------------------------Propiedades---------------------------------------------#
 		#------------------------------------------------------------------------------------------------------#
-		var $_nombreClase="ModeloBaseUsuario";
+		var $_nombreClase="ModeloBaseTicket_historial";
 
 		var $__ss=array();
 

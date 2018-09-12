@@ -58,7 +58,7 @@
 		
 		public function validarUsuario($infoUsuario)
 		{
-		    $query = "SELECT l.password, l.salt, l.id_usuario, u.nombre, l.id_rol, l.user_name from login_user as l
+		    $query = "SELECT l.password, l.salt, l.id_usuario, u.nombre, l.id_rol, l.user_name,id_login from login_user as l
                        inner join usuario as u on l.id_usuario=u.id_usuario
                      WHERE email ='" . mysqli_real_escape_string($this->dbLink, $infoUsuario['email']) . "'  LIMIT 1";
 		    // die($query);
@@ -71,6 +71,7 @@
 		            if ($row['password'] == $password) {
 		                $arrInfoUsuario['user_name'] = $row['user_nname'];
 		                $arrInfoUsuario['id_rol'] = $row['id_rol'];
+		                $arrInfoUsuario['id_login'] = $row['id_login'];
 		                $arrInfoUsuario['id_usuario'] = $row['id_usuario'];
 		                $arrInfoUsuario['nombre'] = $row['nombre'];
 		                return array(true,$arrInfoUsuario);

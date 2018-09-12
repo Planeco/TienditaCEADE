@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="css/style.css"/>
 
 <div class="sidebar-module">
@@ -66,6 +67,11 @@
 			<li <?php if ($subseccion=="ticket"){echo 'class="page-arrow active-page"';}?>>
 				<a href="ticket.php">
 				<i class="fa fa-ticket"></i> Mis tickets    
+				</a>
+			</li>
+			<li <?php if ($subseccion=="ticketasig"){echo 'class="page-arrow active-page"';}?>>
+				<a href="ticketasig.php">
+				<i class="fa fa-ticket"></i> Mis asignaciones    
 				</a>
 			</li>
 			<li <?php if ($subseccion=="ticketadd"){echo 'class="page-arrow active-page"';}?>>
