@@ -44,7 +44,7 @@
 						<td>'.$ticket['id_ticket'].'</td>
 						<td>'.$ticket['titulo'].'</td>
 						<td>'.$ticket['nombreUsuario'].'</td>
-						<td>'.$ticket['categoria'].' ['.$ticket['tipo_solicitud'].']</td>
+						<td>['.$ticket['tipo_solicitud'].']</td>
 						<td><span class="label label-'.$ticket['prioridad'].'">'.$ticket['nprioridad'].'</span></td>
 						<td><i class="'.$ticket['estatus'].'"></i> '.$ticket['nestatus'].'</td>
 						<td>'.date("d M Y h:i:s", strtotime($ticket['fecha'])).'</td>

@@ -26,5 +26,7 @@ $idOp = '';
 $seccion = isset($arrSeccionesPagina[$__FILE_NAME__]) ? $arrSeccionesPagina[$__FILE_NAME__] : "";
 $subseccion = $__FILE_NAME__;
 //  echo "[" . $seccion . "][" . $subseccion . "]";
-
+if ($subseccion!="ticketrev"&&$subseccion!="admintickets"){
+    if(isset($_SESSION['tid'])){unset($_SESSION['tid']);}
+}
 ?>

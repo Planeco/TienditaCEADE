@@ -113,9 +113,15 @@ require ("masterIncludeLogin.inc.php");
 <script src="js/plugins/layout.min.js"></script>
 <script src="js/plugins/masonry.pkgd.min.js"></script>
 
+    <!-- table sort -->
+    <script src="js/plugins/jquery.tablesorter.min.js"></script>
+    <script src="js/plugins/jquery.tablesorter.widgets.min.js"></script>
+    <script src="js/plugins/jquery.tablesorter.pager.min.js"></script>
+    
+    
+	<script src="js/plugins/generics.js"></script>
+	    <script src="js/plugins/tablesort.js"></script>
 
-<script src="js/plugins/generics.js"></script>
-	     
     <?php
     echo $_JAVASCRIPT_CSS;
     ?>
@@ -135,7 +141,7 @@ require ("masterIncludeLogin.inc.php");
 				<header id="header-sec">
 					<div class="inner-padding">
 						<div class="pull-left">
-							<h2>Historial</h2>
+							<h2>Listado</h2>
 						</div>
 					</div>
 				</header>
@@ -143,9 +149,56 @@ require ("masterIncludeLogin.inc.php");
 					<div class="col-sm-12 inner-padding">
 						<h3></h3>
 
-						<div class="inner-padding">
+						<div class="inner-padding" 
 
-							<div class="col-sm-12"></div>
+							<div class="col-sm-12" id="tablaTickets" style="display: none;">
+														<table class="table" id="tablesorting-1">
+											<thead>
+												<tr>
+													<th>Ticket ID</th>
+													<th>Tema</th>
+													<th>Usuario</th>
+													<th>Asignado</th>
+													<th>Tipo</th>
+													<!-- <th>Prioridad</th>-->
+													<th>Estatus</th>
+										<!--			<th>Alta</th>       
+                          <th>D&iacute;as abierto</th> -->
+													<th>Opciones</th>
+												</tr>
+											</thead>
+											<tbody id="tbodyTickets">
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="7" class="pager form-horizontal">
+														<button class="btn first"><i class="fa fa-step-backward"></i></button>
+														<button class="btn prev"><i class="fa fa-arrow-left"></i></button>
+														<span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+														<button class="btn next"><i class="fa fa-arrow-right"></i></button>
+														<button class="btn last"><i class="fa fa-step-forward"></i></button>
+														<select class="pagesize input-xs" title="Select page size">
+															<option value="10">10</option>
+															<option value="20">20</option>
+															<option value="30">30</option>
+															<option selected="selected" value="40">40</option>
+														</select>
+														<select class="pagenum input-xs" title="Seleccione P&aacute;gina"></select>
+													</td>
+												</tr>
+											</tfoot>
+								</table>
+							
+							</div>
+							
+							<div class="col-sm-12" id="divNiguno" style="display: none;">
+								<div class="alert alert-warning">
+                            	<button type="button" class="close" data-dismiss="alert">×</button>
+                            		<i class="fa fa-warning"></i> <strong>No tienes tickets hist&oacute;ricos!</strong>
+                        		</div>
+							</div>
+							
+							
 						</div>
 						<div class="spacer-30"></div>
 					</div>

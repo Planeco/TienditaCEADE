@@ -64,6 +64,13 @@
 			
 			
 			<?php if($seccion=="soporte"):?>
+			 <?php if ($subseccion=="ticketrev"): ?>
+			<li <?php if ($subseccion=="ticketrev"){echo 'class="page-arrow active-page"';}?>>
+				<a href="ticketrev.php">
+				<i class="fa fa-info-circle"></i> Ticket <?php echo $_SESSION['tid'];?>    
+				</a>
+			</li>
+			<?php endif;?>
 			<li <?php if ($subseccion=="ticket"){echo 'class="page-arrow active-page"';}?>>
 				<a href="ticket.php">
 				<i class="fa fa-ticket"></i> Mis tickets    
@@ -71,7 +78,7 @@
 			</li>
 			<li <?php if ($subseccion=="ticketasig"){echo 'class="page-arrow active-page"';}?>>
 				<a href="ticketasig.php">
-				<i class="fa fa-ticket"></i> Mis asignaciones    
+				<i class="fa fa-arrow-circle-right"></i> Mis asignaciones    
 				</a>
 			</li>
 			<li <?php if ($subseccion=="ticketadd"){echo 'class="page-arrow active-page"';}?>>

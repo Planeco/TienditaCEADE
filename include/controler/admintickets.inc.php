@@ -48,7 +48,11 @@ if (isset($_POST ['ticketCampo1'])&&isset($_POST ['ticketCampo2'])) {
 }
 
 if (isset($_POST ['responder'])) {
-    echo obtenCombo(getUsersResponder($_POST['responder']), "Selecciona una opci&oacute;n");
+    echo obtenCombo(getUsersResponder($_POST['responder']), "Selecciona un usuario");
+}
+
+if (isset($_POST ['historialTicket'])) {
+    echo json_encode(obtenerHistoriaTickets($objSession->getIdLogin()));
 }
 
 
@@ -125,18 +129,19 @@ function obtenerHistoriaTickets($idPerfil){
     global $dbLink;
     $nombre=obtenerDatosPerfil($idPerfil);
     $nombre=$nombre['nombre'];
-    $sql = "SELECT T.id_ticket, T.id_solicitante , T.id_asignado, T.fecha, TE.tag as estatus, TE.nombre as nestatus, T.titulo, T.id_tipo,
+    $sql = "SELECT T.id_ticket, T.id_solicitante , T.id_asignado, T.fecha, TE.tag as estatus, TE.nombre as nestatus, T.titulo,TT.nombre as tipo, T.id_tipo,
 		TP.tag as prioridad, TP.nombre as nprioridad FROM ticket as T
 JOIN ticket_prioridad as TP ON T.id_prioridad=TP.id_tprioridad
 JOIN ticket_status as TE ON T.id_tstatus=TE.id_tstatus
-WHERE T.id_solicitante=".$idPerfil." OR T.id_asignado=".$idPerfil."
+JOIN ticket_tipo as TT ON T.id_tipo=TT.id_ttipo
+WHERE (T.id_solicitante=".$idPerfil." OR T.id_asignado=".$idPerfil.") and T.id_tstatus>=5 and T.id_tstatus<=7
 		ORDER BY T.id_ticket DESC";
     
     $res = mysqli_query ( $dbLink, $sql );
     $arrTickets = array ();
-    if ($res && mysqli_num_rows ( $res ) > 0) {
-        
-        while ( $row_inf = mysqli_fetch_assoc ( $res ) ) {
+    $count=mysqli_num_rows ( $res );
+    if ($res && $count> 0) {
+       while ( $row_inf = mysqli_fetch_assoc ( $res ) ) {
             $arrTicket = array(
                 'id_ticket'=>$row_inf['id_ticket'],
                 'fecha'=>$row_inf['fecha'],
@@ -144,7 +149,8 @@ WHERE T.id_solicitante=".$idPerfil." OR T.id_asignado=".$idPerfil."
                 'nestatus'=>$row_inf['nestatus'],
                 'titulo'=>$row_inf['titulo'],
                 'prioridad'=>$row_inf['prioridad'],
-                'nprioridad'=>$row_inf['nprioridad']
+                'nprioridad'=>$row_inf['nprioridad'],
+                'tipo_solicitud'=>$row_inf['tipo'],
             );
             if ($row_inf['id_solicitante']==$idPerfil){
                 $arrTicket['nombreUsuario']=$nombre;
@@ -176,7 +182,7 @@ WHERE T.id_solicitante=".$idPerfil." OR T.id_asignado=".$idPerfil."
         }
         
     }
-    return $arrTickets;
+    return array($arrTickets,$count);
     
 }
 
@@ -233,7 +239,7 @@ function obtenerInfoTicket($idTicket){
         if ($res && mysqli_num_rows ( $res ) > 0) {
             $row_inf_user = mysqli_fetch_assoc ( $res ) ;
             $arrSolicitante = array(
-                'nombreUsuario'=>utf8_encode($row_inf_user['nombreUsuario'])
+                'nombreUsuario'=>($row_inf_user['nombreUsuario'])
 //                'ciudad'=>utf8_encode($row_inf_user['ubicacion']),                'rol'=>$row_inf_user['rol_nombre']
             );
             $arrInfo['info_solicitante']=$arrSolicitante;

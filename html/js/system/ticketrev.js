@@ -8,7 +8,7 @@
 	function iniciarControles(){
 		$.ajax({
 			method : "post",
-			url : "adminTickets.php",
+			url : "admintickets.php",
 			data : {
 				tipotickets:''
 			},
